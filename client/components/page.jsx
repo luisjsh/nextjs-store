@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import PageContainer from './page-container'
 import Header from './header'
-import Footer from './footer'
 
 const Article = styled.article`
     position: relative;    
@@ -16,7 +15,6 @@ function Page({title, description, children}) {
         <PageContainer title={title} description={description}>
             <Header />
             <Article>{children}</Article>
-            <Footer />
         </PageContainer>
     )
 }

@@ -65,7 +65,7 @@ export default function ProductPage({fetchedItem}) {
     if(width <= 600) return (
         <Page title={`${name} - Ecommerce project`}>
             <Header>
-                <Img src={imagePath}/> 
+                <Img src={imagePath} alt={`${name}`} loading='lazy'/> 
             </Header>
             <Section backgroundColor='transparent'>
                     <SectionBlurBackground />
@@ -87,7 +87,7 @@ export default function ProductPage({fetchedItem}) {
                         <CustomButton>Buy now</CustomButton>
                 </DesktopSection>
                 <Header height='100%'>
-                    <Img src={imagePath}/> 
+                    <Img src={imagePath} alt={`${name}`} loading='lazy'/> 
                 </Header>
             </DesktopGrid>
         </Page>

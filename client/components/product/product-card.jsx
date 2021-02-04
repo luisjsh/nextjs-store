@@ -69,7 +69,7 @@ function ProductCard({id, name, price, imagePath, animationDelay}) {
         <CardWrapper animationDelay={animationDelay} onClick={handleClick}>
             
             <CardHeader>
-                <Img src={imagePath} />
+                <Img src={imagePath} alt={`${name}`} loading='lazy'/>
             </CardHeader>
 
             <CardSection>

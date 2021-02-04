@@ -57,7 +57,7 @@ export async function getStaticPaths(){
       {params: {id: 'phone'}},
       {params: {id: 'laptop'}},
       {params: {id: 'best-seller'}},
-      {params: {id: 'cpu'}}
+      {params: {id: 'printer'}}
     ],
     fallback: false
   }

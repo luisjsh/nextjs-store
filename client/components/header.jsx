@@ -66,25 +66,40 @@ const LogoSection = styled.div`
 `
 
 const OptionsWrapper = styled.div`
+    position: relative;
     display: grid;
     grid-gap: 1em;
     padding: 1em;
     z-index: 1;
-    background-color: grey;
     width: 90%;
     position: fixed;
     border-radius: 10px;
 `
 
+const OptionsBg = styled.div`
+    position: absolute;   
+    width: 100%;
+    height: 100%;
+    background: grey;
+    z-index: 0;
+    border-radius: 20px;
+    opacity: .3;
+`
+
 const OptionsHeader = styled.header`
     display: grid;
     justify-items: right;
+    z-index: 1;
 `
-
+    
 const OptionsButton = styled.button`
     padding: 1em;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
+    background: #101010;
+    color: white;
+    font-weight: bold;
 `
 
 const Img = styled.img`
@@ -101,12 +116,13 @@ function PageHeader() {
         <Header>
             <HamburguerButton onClick={()=>setModal(!modal)}/>
             <LogoSection onClick={()=>router.push('/')}>
-                <Img src={Logo}/>
+                <Img src={Logo}  alt='logo'/>
             </LogoSection>
 
             {
                 modal && (
                 <OptionsWrapper>
+                    <OptionsBg/>
                     <OptionsHeader>
                         <HamburguerButton type='cancel' onClick={()=>setModal(!modal)}/>
                     </OptionsHeader>
@@ -126,15 +142,15 @@ function PageHeader() {
     if(width > 600) return(
         <Header>
             <LogoSection responsive='desktop' onClick={()=>router.push('/')}>
-                <Img src={Logo}/>
+                <Img src={Logo} alt='logo'/>
                 <Title type='navbar-title'>Ecommerce</Title>
             </LogoSection>
             <div className="">
 
             </div>
                 <div style={{display: 'grid', gridAutoFlow: 'column', gridGap:'1em' }}>
-                <Title type='secundary' handleClick={()=>router.push('/category/phone')}>Phones</Title>
-                <Title type='secundary' handleClick={()=>router.push('/category/laptop')}>Laptops</Title>
+                <Title cursor='pointer' type='secundary' handleClick={()=>router.push('/category/phone')}>Phones</Title>
+                <Title cursor='pointer' type='secundary' handleClick={()=>router.push('/category/laptop')}>Laptops</Title>
             </div>
         </Header>
     )

@@ -18,6 +18,15 @@ const SecundaryTitle = styled.div`
     display: grid;
     justify-items: ${props.align};`
     }
+    ${props => props.cursor && `
+        padding: .4em;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 10px;
+        &:hover, &:focus{
+            background: #121212;
+        }
+    `}
 `
 
 const animatedBackground = keyframes`
@@ -68,17 +77,17 @@ export const NavTitle = styled.h1`
     }
 `
 
-function Title({align, type, handleClick, children}) {
+function Title({cursor, align, type, handleClick, children}) {
     if (type === 'primary') return (
-        <PrimaryTitle align={align} onClick={handleClick}>{children}</PrimaryTitle>
+        <PrimaryTitle cursor={cursor} align={align} onClick={handleClick}>{children}</PrimaryTitle>
     )
 
     if(type === 'secundary') return (
-        <SecundaryTitle align={align} onClick={handleClick}>{children}</SecundaryTitle>
+        <SecundaryTitle cursor={cursor} align={align} onClick={handleClick}>{children}</SecundaryTitle>
     )
 
     if(type === 'navbar-title') return (
-        <NavbarTitle align={align} onClick={handleClick}>{children}</NavbarTitle>
+        <NavbarTitle cursor={cursor} align={align} onClick={handleClick}>{children}</NavbarTitle>
     )
 }
 
