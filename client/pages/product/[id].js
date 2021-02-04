@@ -6,6 +6,7 @@ import useWidth from '../../helpers/useWidth'
 import Page from '../../components/page'
 import Title from '../../components/title'
 import CustomButton from '../../components/custom-button'
+import { useRouter } from 'next/router'
 
 const Header = styled.header`
     display: grid;
@@ -58,10 +59,10 @@ const DesktopSection = styled.section`
     grid-gap: 2em;
 `
 
-export default function ProductPage({fetchedItem}) {
-    let {name, imagePath, description} = fetchedItem[0]
+export default function ProductPage({name, imagePath, description}) {
     const width = useWidth()
-
+    const router = useRouter()
+    
     if(width <= 600) return (
         <Page title={`${name} - Ecommerce project`}>
             <Header>
@@ -99,12 +100,8 @@ export async function getStaticProps(context){
     let propData = DATA.filter( ({name}) => {
         return name === id
     })
-
-    return {
-        props: {
-            fetchedItem: propData
-        }
-    }
+    let {name, imagePath, description} = propData[0]
+    return {props: {name, imagePath, description} }
 }
 
 export async function getStaticPaths(){
